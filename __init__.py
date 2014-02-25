@@ -6,7 +6,7 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/test2')
+@app.route('/test')
 def hello_world():
 	return render_template('index.html')
 
@@ -20,7 +20,7 @@ def send_token():
         "code":code
         }
     url = "https://api.venmo.com/v1/oauth/access_token"
-    response = requests.post(url, data)
+    response = requests.post(url, params=data)
     response_dict = response.json()
     print(response_dict)
     return render_template('index.html', access_token=response_dict["access_token"])

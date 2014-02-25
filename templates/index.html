@@ -11,21 +11,24 @@
   <body>
     <div data-role="page" id="main">
       <div data-role="header" class="jqm-header">
-        <h1>Pebmo {{ access_token }}</h1>
+        <h1>Pebmo</h1>
       </div>
 
       <div data-role="content">
 
 
-        <div class="ui-body ui-body-b">
-          <fieldset class="ui-grid-a">
-              <div class="ui-block-b"><button type="submit" data-theme="a" id="b-submit">Connect to Venmo</button></div>
-            </fieldset>
-          </div>
+      
+             <button type="submit" data-theme="a" id="b-submit">Connect to Venmo</button>
+          
         </div>
       </div>
     </div>
+    <a id="token" >{{access_token}}</a>
     <script>
+         /* var location = "pebblejs://close#" + {{ access_token }};
+          console.log("Warping to: " + location);
+          console.log(location);
+          document.location = location;*/
       function saveOptions() {
         var options = {
           'name': $("#name").val(),
@@ -46,8 +49,10 @@
 
         $("#b-submit").click(function() {
           console.log("Submit");
+          var token = document.getElementById('token').innerHTML;
+          var url = "pebblejs://close#";
 
-          var location = "pebblejs://close#" + {{ access_token }});
+          var location = url.concat(token);
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
