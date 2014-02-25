@@ -1,10 +1,19 @@
+from flask import render_template
 from flask import Flask
+from flask import request
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route('/test2')
 def hello_world():
-    return 'Hello World'
+	return render_template('index.html')
+
+
+@app.route('/', methods = ['GET'])
+def send_token():
+    access_token = request.args.get('access_token')
+    return render_template('index.html', access_token=access_token)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(debug=True)
