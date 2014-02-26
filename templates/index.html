@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pebmo</title>
+    <title>Configurable</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
@@ -24,6 +24,8 @@
       </div>
     </div>
     <a id="token" >{{access_token}}</a>
+    <a id="id" >{{id}}</a>
+
     <script>
       $().ready(function() {
         $("#b-cancel").click(function() {
@@ -34,9 +36,11 @@
         $("#b-submit").click(function() {
           console.log("Submit");
           var token = document.getElementById('token').innerHTML;
+          var id = document.getElementById('id').innerHTML;
+
           var url = "pebblejs://close#";
 
-          var location = url.concat(token);
+          var location = url.concat(token, ",", id);
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;

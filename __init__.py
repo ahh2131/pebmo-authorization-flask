@@ -23,7 +23,7 @@ def send_token():
     response = requests.post(url, params=data)
     response_dict = response.json()
     print(response_dict)
-    return render_template('index.html', access_token=response_dict["access_token"])
+    return render_template('index.html', access_token=response_dict["access_token"], id=response_dict["user"]["id"])
 
 if __name__ == '__main__':
     app.run(debug=True)
