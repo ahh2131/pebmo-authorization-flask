@@ -22,8 +22,9 @@ def send_token():
     url = "https://api.venmo.com/v1/oauth/access_token"
     response = requests.post(url, params=data)
     response_dict = response.json()
-    print(response_dict)
-    return render_template('index.html', access_token=response_dict["access_token"], id=response_dict["user"]["id"])
+    identity = response_dict["user"]["id"]
+    print(identity)
+    return render_template('index.html', access_token=response_dict["access_token"], identity=identity)
 
 if __name__ == '__main__':
     app.run(debug=True)

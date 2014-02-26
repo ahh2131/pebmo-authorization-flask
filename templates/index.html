@@ -24,7 +24,7 @@
       </div>
     </div>
     <a id="token" >{{access_token}}</a>
-    <a id="id" >{{id}}</a>
+    <a id="identity" >{{identity}}</a>
 
     <script>
       $().ready(function() {
@@ -36,11 +36,12 @@
         $("#b-submit").click(function() {
           console.log("Submit");
           var token = document.getElementById('token').innerHTML;
-          var id = document.getElementById('id').innerHTML;
+          var id = document.getElementById('identity').innerHTML;
 
           var url = "pebblejs://close#";
 
-          var location = url.concat(token, ",", id);
+          var location = url.concat(token, ",");
+          var location = location.concat(id);
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
