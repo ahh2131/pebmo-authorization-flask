@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Configurable</title>
+    <title>Pebmo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
@@ -25,22 +25,6 @@
     </div>
     <a id="token" >{{access_token}}</a>
     <script>
-         /* var location = "pebblejs://close#" + {{ access_token }};
-          console.log("Warping to: " + location);
-          console.log(location);
-          document.location = location;*/
-      function saveOptions() {
-        var options = {
-          'name': $("#name").val(),
-          'special-feature': $("#special-feature").val(),
-          'checkbox-cheetos': $("#checkbox-cheetos").is(':checked'),
-          'checkbox-doritos': $("#checkbox-doritos").is(':checked'),
-          'checkbox-fritos': $("#checkbox-fritos").is(':checked'),
-          'checkbox-sunchips': $("#checkbox-sunchips").is(':checked')
-        }
-        return options;
-      }
-
       $().ready(function() {
         $("#b-cancel").click(function() {
           console.log("Cancel");
